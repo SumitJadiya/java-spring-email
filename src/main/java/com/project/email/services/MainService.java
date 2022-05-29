@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
-import javax.mail.internet.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -43,7 +46,7 @@ public class MainService {
     @Value("${emailCreds.mail.content.val}")
     private String content;
 
-    public void sendEmail() throws AddressException, MessagingException, IOException {
+    public void sendEmail() throws MessagingException, IOException {
 
         URL url = new URL(content);
 
@@ -67,7 +70,6 @@ public class MainService {
 
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(userEmail, false));
-
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
         msg.setSubject(toSubject);
         msg.setContent("email content", "text/html");
