@@ -1,0 +1,29 @@
+server:
+  port: 9999
+
+emailCreds:
+  mail:
+    smtp:
+      auth:
+        val: "true"
+      starttls:
+        enable:
+          val: "true"
+      host:
+        val: "smtp.mailtrap.io"
+      port:
+        val: "587"
+    from:
+      id:
+        val: "614df3f4b74341"
+      pass:
+        val: "4375136f1607c4"
+      email:
+        val: "jadiyaskj@gmail.com"
+    to:
+      email:
+        val: "jadiyaskj@gmail.com"
+      subject:
+        val: "Tutorials point email"
+    content:
+      val: "https://pro.joker.planturtle.com/api/files/v1/view/b755ee78-59bf-4723-ae46-41f0cefadfee?broker=turtlemint"
